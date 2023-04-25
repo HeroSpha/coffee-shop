@@ -1,0 +1,15 @@
+<div class="container-fluid p-3">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let menuItem of menuItems">
+            <div class="card d-flex">
+                <img [src]="menuItem.image" alt="{{ menuItem.name }} Image" class="card-img-top" alt="...">
+                <div class="card-body ">
+                    <h5 class="card-title">{{ menuItem.name }}</h5>
+                    <a href="#" class=" me-5 text-decoration-none mt-2 fw-bold">R{{ menuItem.price }}</a>
+                    <button class="btn btn-primary" *ngIf="getCurrentUser().role === 'Customer'"
+                        (click)="addToCart(menuItem)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

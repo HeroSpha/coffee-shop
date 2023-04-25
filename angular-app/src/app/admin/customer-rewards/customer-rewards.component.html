@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{customer.firstName}} {{customer.lastName}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row py-3">
+            <div class="col-10">
+                <h1>({{customer.points}} points)</h1>
+                <h6 class="text-success"><b>{{customer.cash | currency}} earned</b></h6>
+            </div>
+        </div>
+        <hr />
+        <div class="row" *ngIf="customer">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <th>Status</th>
+                        <th>Program Name</th>
+                        <th>Cash value</th>
+                        <th>Points</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reward of customer.rewards">
+                            <td>{{reward.customerRewardEnum}}</td>
+                            <td>{{reward.programName}}</td>
+                            <td>{{reward.cashValue | currency}}</td>
+                            <td>{{reward.points}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

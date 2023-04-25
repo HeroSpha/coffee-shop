@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <h1>My orders</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Order date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders; let i = index">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{order.orderDate | date}}</td>
+                        <td>{{order.status}}</td>
+                        <td><b>{{order.orderTotal | currency}}</b></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
